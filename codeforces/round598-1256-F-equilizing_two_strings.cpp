@@ -1,4 +1,5 @@
 #include<iostream>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -7,15 +8,11 @@ bool equilizingTwoString(string str1, string str2) {
 
 	int diffStart = -1;
 	int diffEnd = -1;
-	int diffStart1 = -1;
-	int diffEnd1 = -1;
-	int diffStart2 = -1;
-	int diffEnd2 = -1;
-
+	vector <int> diffStartVec;
+	vector <int> diffEndVec;
 	for (int i = 0; i < str1.size(); i++) {
 		if (str1[i] != str2[i]) {
 			diffStart = i;
-
 			while (i < str1.size() && str1[i] != str2[i]) {
 				i++;
 			}
@@ -24,33 +21,33 @@ bool equilizingTwoString(string str1, string str2) {
 		}
 
 		if (diffStart != -1) {
-			if (diffStart1 == -1) {
-				diffStart1 = diffStart;
-			}
-			else {
-				diffStart2 = diffStart;
-			}
+			diffStartVec.push_back(diffStart);
+			diffStart = -1;
 		}
 
 		if (diffEnd != -1) {
-			if (diffEnd1 == -1) {
-				diffEnd1 = diffEnd;
-			}
-			else {
-				diffEnd2 = diffEnd;
-			}
+			diffEndVec.push_back(diffEnd);
+			diffEnd = -1;
 		}
 	}
 
-	cout << diffStart1 << " " << diffEnd1;
-	cout << diffStart2 << " " << diffEnd2;
+
+
+	cout << diffStartVec[0] << " ";
+	cout << diffEndVec[0] << " ";
 
 	return true;
 }
 
 int main(){
 
-
+    int number_of_test_case;
+    int length;
+    string string1;
+    string string2;
+    cin >> number_of_test_case >> length;
+    cin >> string1;
+    cin >> string2;
 	equilizingTwoString("hasan", "kakan");
 
 	return 0;
