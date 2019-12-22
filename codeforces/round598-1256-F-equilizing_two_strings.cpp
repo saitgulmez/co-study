@@ -37,17 +37,18 @@ bool equilizingTwoString(string str1, string str2) {
 	for (int i = 0; i < diffStartVec.size(); i++) {
 		reversedOfStr2 = reverseString(str2, diffStartVec[i], diffEndVec[i]);
 	}
-
-	// for (int i = 0; i < diffStartVec.size(); i++)
-	// {
-		// cout << diffStartVec[i] << " ";
-		// cout << diffEndVec[i] << " ";
-	// }
+	
+	for (int i = 0; i < diffStartVec.size(); i++)
+	{
+		cout << diffStartVec[i] << " ";
+		cout << diffEndVec[i] << " ";
+	}
 
 	if (str1 == reversedOfStr2) {
 		return true;
 	}
 	else {
+		cout << reversedOfStr2 << endl;
 		return false;
 	}
 
@@ -58,16 +59,30 @@ bool equilizingTwoString(string str1, string str2) {
 
 string reverseString(string str, int start, int end) {
 
+	// char temp;
+	// while (start != end) {
+	// 	temp = str[start];
+	// 	str[start] = str[end];
+	// 	str[end] = temp;
+	// 	start++;
+	// 	end--;
+	// }
+
+	for (int i = start; i < end; i++)
+	{
+		swap(str[i], str[end-1]);
+		end--;
+	}
 	return str;
 }
 
 
-int main() {
+int main(){
 
-	int number_of_test_case;
-	int length;
-	string string1;
-	string string2;
+    int number_of_test_case;
+    int length;
+    string string1;
+    string string2;
 
 	cin >> number_of_test_case;
 
@@ -75,7 +90,7 @@ int main() {
 		cin >> length;
 		cin >> string1;
 		cin >> string2;
-		if (equilizingTwoString(string1, string2))
+		if(equilizingTwoString(string1, string2))
 			cout << "YES" << endl;
 		else
 			cout << "NO" << endl;
