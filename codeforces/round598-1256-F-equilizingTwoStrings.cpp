@@ -36,7 +36,30 @@ bool equilizingTwoString(string str1, string str2) {
 	cout << diffStartVec[0] << " ";
 	cout << diffEndVec[0] << " ";
 
+	for (int i = 0; i < diffStartVec.size(); i++)
+	{
+
+	}
 	return true;
+}
+
+string reverseString(string str, int start, int end) {
+
+	// char temp;
+	// while (start != end) {
+	// 	temp = str[start];
+	// 	str[start] = str[end];
+	// 	str[end] = temp;
+	// 	start++;
+	// 	end--;
+	// }
+
+	for (int i = start; i < end; i++)
+	{
+		swap(str[i], str[end]);
+		end--;
+	}
+	return str;
 }
 
 int main(){
