@@ -3,6 +3,7 @@
 #include <algorithm>
 
 using namespace std;
+string reverseString(string str, int start, int end);
 
 bool equilizingTwoString(string str1, string str2) {
 
@@ -31,24 +32,54 @@ bool equilizingTwoString(string str1, string str2) {
 		}
 	}
 
+	string reversedOfStr2 = str2;
+	// Reverse all in str2, assuming there may be more than two diff substr
+	for (int i = 0; i < diffStartVec.size(); i++) {
+		reversedOfStr2 = reverseString(str2, diffStartVec[i], diffEndVec[i]);
+	}
 
+	// for (int i = 0; i < diffStartVec.size(); i++)
+	// {
+		// cout << diffStartVec[i] << " ";
+		// cout << diffEndVec[i] << " ";
+	// }
 
-	cout << diffStartVec[0] << " ";
-	cout << diffEndVec[0] << " ";
+	if (str1 == reversedOfStr2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
 
 	return true;
 }
 
-int main(){
 
-    int number_of_test_case;
-    int length;
-    string string1;
-    string string2;
-    cin >> number_of_test_case >> length;
-    cin >> string1;
-    cin >> string2;
-	equilizingTwoString("hasan", "kakan");
+string reverseString(string str, int start, int end) {
+
+	return str;
+}
+
+
+int main() {
+
+	int number_of_test_case;
+	int length;
+	string string1;
+	string string2;
+
+	cin >> number_of_test_case;
+
+	for (int i = 0; i < number_of_test_case; i++) {
+		cin >> length;
+		cin >> string1;
+		cin >> string2;
+		if (equilizingTwoString(string1, string2))
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
+	}
 
 	return 0;
 }
