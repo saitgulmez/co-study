@@ -3,6 +3,7 @@
 #include <algorithm>
 
 using namespace std;
+string reverseString(string str, int start, int end);
 
 bool equilizingTwoString(string str1, string str2) {
 
