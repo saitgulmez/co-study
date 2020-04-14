@@ -1,1 +1,2 @@
-# https://codeforces.com/contest/1253
+
+# Authors: @yilmazhasan, @saitgulmez
